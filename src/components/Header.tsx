@@ -1,7 +1,9 @@
 export function Header() {
     return (
         <header>
-            <h1>React WC2026 Stickers Tracker</h1>
+            <h1 className="text-5xl text-white">
+                React WC2026 Stickers Tracker
+            </h1>
         </header>
     )
 }

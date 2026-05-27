@@ -2,7 +2,7 @@ import { Groups } from './Groups'
 
 export function Main() {
     return (
-        <main>
+        <main className="mt-10">
             <Groups />
         </main>
     )
