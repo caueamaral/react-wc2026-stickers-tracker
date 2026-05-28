@@ -15,9 +15,9 @@ export function Groups() {
     return (
         <article className="flex flex-col gap-5">
             {
-                groups.map((group, index) => (
+                groups.map(group => (
                     <section
-                        key={index}
+                        key={group.name}
                         className="bg-white py-4 px-5 rounded-md"
                     >
                         <div className="border border-gray-300 flex items-stretch">
@@ -29,11 +29,11 @@ export function Groups() {
                                 </h2>
                             </header>
                             <div className="flex-1">
-                                {group.teams.map((team, index) => (
-                                    <div key={index} className="flex">
+                                {group.teams.map(team => (
+                                    <div key={team} className="flex">
                                         <span className="border border-gray-300 p-2 min-w-40">{team}</span>
-                                        {stickers.map((number, index) => (
-                                            <span key={index} className="border border-gray-300 p-2 flex-1 text-center">
+                                        {stickers.map(number => (
+                                            <span key={number} className="border border-gray-300 p-2 flex-1 text-center">
                                                 {number}
                                             </span>
                                         ))}
