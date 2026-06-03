@@ -4,39 +4,88 @@ export function Groups() {
     const groups = [
         {
             name: 'A',
-            teams: ['México', 'África do Sul', 'Coréia do Sul', 'República Checa']
+            teams: ['México', 'África do Sul', 'Coreia do Sul', 'República Checa']
         },
         {
             name: 'B',
-            teams: ['Canadá', 'Bósnia', 'Catar', 'Suiça']
+            teams: ['Canadá', 'Bósnia e Herzegovina', 'Catar', 'Suíça']
         },
+        {
+            name: 'C',
+            teams: ['Brasil', 'Marrocos', 'Haiti', 'Escócia']
+        },
+        {
+            name: 'D',
+            teams: ['Estados Unidos', 'Paraguai', 'Austrália', 'Turquia']
+        },
+        {
+            name: 'E',
+            teams: ['Alemanha', 'Curaçao', 'Costa do Marfim', 'Equador']
+        },
+        {
+            name: 'F',
+            teams: ['Países Baixos', 'Japão', 'Suécia', 'Tunísia']
+        },
+        {
+            name: 'G',
+            teams: ['Bélgica', 'Egito', 'Irã', 'Nova Zelândia']
+        },
+        {
+            name: 'H',
+            teams: ['Espanha', 'Cabo Verde', 'Arábia Saudita', 'Uruguai']
+        },
+        {
+            name: 'I',
+            teams: ['França', 'Senegal', 'Iraque', 'Noruega']
+        },
+        {
+            name: 'J',
+            teams: ['Argentina', 'Argélia', 'Áustria', 'Jordânia']
+        },
+        {
+            name: 'K',
+            teams: ['Portugal', 'RD Congo', 'Uzbequistão', 'Colômbia']
+        },
+        {
+            name: 'L',
+            teams: ['Inglaterra', 'Croácia', 'Gana', 'Panamá']
+        }
     ]
 
     return (
-        <article className="flex flex-col gap-5">
+        <article className="flex flex-wrap justify-center gap-10 mx-auto">
             {
                 groups.map(group => (
                     <section
                         key={group.name}
-                        className="bg-white py-4 px-5 rounded-md"
+                        className="bg-white p-5 rounded-md w-100"
                     >
-                        <div className="border border-gray-300 flex items-stretch">
-                            <header className="border border-gray-300 flex items-center">
-                                <h2 className="text-2xl font-medium text-center uppercase p-5">
-                                    Group
-                                    <br />
-                                    {group.name}
+                        <div className="flex flex-col gap-3">
+                            <header>
+                                <h2 className="bg-gray-100 text-2xl font-medium text-center uppercase p-5">
+                                    Group {group.name}
                                 </h2>
                             </header>
-                            <div className="flex-1">
+                            <div className="flex flex-col gap-7">
                                 {group.teams.map(team => (
-                                    <div key={team} className="flex">
-                                        <span className="border border-gray-300 p-2 min-w-40">{team}</span>
-                                        {stickers.map(number => (
-                                            <span key={number} className="border border-gray-300 p-2 flex-1 text-center">
-                                                {number}
-                                            </span>
-                                        ))}
+                                    <div key={team} className="flex flex-col">
+                                        <div className="p-2 text-center uppercase">
+                                            {team}
+                                        </div>
+                                        <div className="bg-gray-100 flex">
+                                            {stickers.slice(0, 10).map(number => (
+                                                <span key={number} className="p-2 text-center flex-1 w-[10%]">
+                                                    {number}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="bg-gray-100 flex">
+                                            {stickers.slice(10, 20).map(number => (
+                                                <span key={number} className="p-2 text-center flex-1 w-[10%]">
+                                                    {number}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
