@@ -7,20 +7,20 @@ export function Groups() {
             {
                 groups.map(group => (
                     <section
-                        key={group.name}
+                        key={group.letter}
                         className="bg-white p-5 rounded-md w-100"
                     >
                         <div className="flex flex-col gap-3">
                             <header>
                                 <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-5">
-                                    Group {group.name}
+                                    Group {group.letter}
                                 </h2>
                             </header>
                             <div className="flex flex-col gap-10">
                                 {group.teams.map(team => (
-                                    <div key={team}>
+                                    <div key={team.name}>
                                         <div className="font-bold py-3">
-                                            {team}
+                                            {team.name}
                                         </div>
                                         <div className="flex flex-col gap-5">
                                             <div className="flex gap-5">

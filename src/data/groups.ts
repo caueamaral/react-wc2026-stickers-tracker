@@ -1,55 +1,264 @@
+export type Team = {
+    name: string
+    code: string
+}
+
 export type Group = {
-    name: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L'
-    teams: string[]
+    letter: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L'
+    teams: Team[]
 }
 
 export const groups: Group[] = [
     {
-        name: 'A',
-        teams: ['México', 'África do Sul', 'Coreia do Sul', 'República Checa']
+        letter: 'A',
+        teams: [
+            {
+                name: 'México',
+                code: 'MEX'
+            },
+            {
+                name: 'África do Sul',
+                code: 'RSA'
+            },
+            {
+                name: 'Coreia do Sul',
+                code: 'KOR'
+            },
+            {
+                name: 'República Checa',
+                code: 'CZE'
+            }
+        ]
     },
     {
-        name: 'B',
-        teams: ['Canadá', 'Bósnia e Herzegovina', 'Catar', 'Suíça']
+        letter: 'B',
+        teams: [
+            {
+                name: 'Canadá',
+                code: 'CAN'
+            },
+            {
+                name: 'Bósnia e Herzegovina',
+                code: 'BIH'
+            },
+            {
+                name: 'Catar',
+                code: 'QAT'
+            },
+            {
+                name: 'Suíça',
+                code: 'SUI'
+            }
+        ]
     },
     {
-        name: 'C',
-        teams: ['Brasil', 'Marrocos', 'Haiti', 'Escócia']
+        letter: 'C',
+        teams: [
+            {
+                name: 'Brasil',
+                code: 'BRA'
+            },
+            {
+                name: 'Marrocos',
+                code: 'MAR'
+            },
+            {
+                name: 'Haiti',
+                code: 'HAI'
+            },
+            {
+                name: 'Escócia',
+                code: 'SCO'
+            }
+        ]
     },
     {
-        name: 'D',
-        teams: ['Estados Unidos', 'Paraguai', 'Austrália', 'Turquia']
+        letter: 'D',
+        teams: [
+            {
+                name: 'Estados Unidos',
+                code: 'USA'
+            },
+            {
+                name: 'Paraguai',
+                code: 'PAR'
+            },
+            {
+                name: 'Austrália',
+                code: 'AUS'
+            },
+            {
+                name: 'Turquia',
+                code: 'TUR'
+            }
+        ]
     },
     {
-        name: 'E',
-        teams: ['Alemanha', 'Curaçao', 'Costa do Marfim', 'Equador']
+        letter: 'E',
+        teams: [
+            {
+                name: 'Alemanha',
+                code: 'GER'
+            },
+            {
+                name: 'Curaçao',
+                code: 'CUW'
+            },
+            {
+                name: 'Costa do Marfim',
+                code: 'CIV'
+            },
+            {
+                name: 'Equador',
+                code: 'ECU'
+            }
+        ]
     },
     {
-        name: 'F',
-        teams: ['Países Baixos', 'Japão', 'Suécia', 'Tunísia']
+        letter: 'F',
+        teams: [
+            {
+                name: 'Países Baixos',
+                code: 'NED'
+            },
+            {
+                name: 'Japão',
+                code: 'JPN'
+            },
+            {
+                name: 'Suécia',
+                code: 'SWE'
+            },
+            {
+                name: 'Tunísia',
+                code: 'TUN'
+            }
+        ]
     },
     {
-        name: 'G',
-        teams: ['Bélgica', 'Egito', 'Irã', 'Nova Zelândia']
+        letter: 'G',
+        teams: [
+            {
+                name: 'Bélgica',
+                code: 'BEL'
+            },
+            {
+                name: 'Egito',
+                code: 'EGY'
+            },
+            {
+                name: 'Irã',
+                code: 'IRN'
+            },
+            {
+                name: 'Nova Zelândia',
+                code: 'NZL'
+            }
+        ]
     },
     {
-        name: 'H',
-        teams: ['Espanha', 'Cabo Verde', 'Arábia Saudita', 'Uruguai']
+        letter: 'H',
+        teams: [
+            {
+                name: 'Espanha',
+                code: 'ESP'
+            },
+            {
+                name: 'Cabo Verde',
+                code: 'CPV'
+            },
+            {
+                name: 'Arábia Saudita',
+                code: 'KSA'
+            },
+            {
+                name: 'Uruguai',
+                code: 'URU'
+            }
+        ]
     },
     {
-        name: 'I',
-        teams: ['França', 'Senegal', 'Iraque', 'Noruega']
+        letter: 'I',
+        teams: [
+            {
+                name: 'França',
+                code: 'FRA'
+            },
+            {
+                name: 'Senegal',
+                code: 'SEN'
+            },
+            {
+                name: 'Iraque',
+                code: 'IRQ'
+            },
+            {
+                name: 'Noruega',
+                code: 'NOR'
+            }
+        ]
     },
     {
-        name: 'J',
-        teams: ['Argentina', 'Argélia', 'Áustria', 'Jordânia']
+        letter: 'J',
+        teams: [
+            {
+                name: 'Argentina',
+                code: 'ARG'
+            },
+            {
+                name: 'Argélia',
+                code: 'ALG'
+            },
+            {
+                name: 'Áustria',
+                code: 'AUT'
+            },
+            {
+                name: 'Jordânia',
+                code: 'JOR'
+            }
+        ]
     },
     {
-        name: 'K',
-        teams: ['Portugal', 'RD Congo', 'Uzbequistão', 'Colômbia']
+        letter: 'K',
+        teams: [
+            {
+                name: 'Portugal',
+                code: 'POR'
+            },
+            {
+                name: 'RD Congo',
+                code: 'COD'
+            },
+            {
+                name: 'Uzbequistão',
+                code: 'UZB'
+            },
+            {
+                name: 'Colômbia',
+                code: 'COL'
+            }
+        ]
     },
     {
-        name: 'L',
-        teams: ['Inglaterra', 'Croácia', 'Gana', 'Panamá']
+        letter: 'L',
+        teams: [
+            {
+                name: 'Inglaterra',
+                code: 'ENG'
+            },
+            {
+                name: 'Croácia',
+                code: 'CRO'
+            },
+            {
+                name: 'Gana',
+                code: 'GHA'
+            },
+            {
+                name: 'Panamá',
+                code: 'PAN'
+            }
+        ]
     }
 ]
