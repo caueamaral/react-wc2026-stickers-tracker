@@ -4,7 +4,7 @@ import './css/styles.css'
 
 function App() {
   return (
-    <div className="mx-auto px-5 mt-15 mb-20">
+    <div className="py-10">
       <Header />
       <Main />
     </div>
