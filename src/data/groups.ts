@@ -1,6 +1,7 @@
 export type Team = {
     name: string
     code: string
+    flag: string
 }
 
 export type Group = {
@@ -14,19 +15,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'México',
-                code: 'MEX'
+                code: 'MEX',
+                flag: '\u{1F1F2}\u{1F1FD}'
             },
             {
                 name: 'África do Sul',
-                code: 'RSA'
+                code: 'RSA',
+                flag: '\u{1F1FF}\u{1F1E6}'
             },
             {
                 name: 'Coreia do Sul',
-                code: 'KOR'
+                code: 'KOR',
+                flag: '\u{1F1F0}\u{1F1F7}'
             },
             {
                 name: 'República Checa',
-                code: 'CZE'
+                code: 'CZE',
+                flag: '\u{1F1E8}\u{1F1FF}'
             }
         ]
     },
@@ -35,19 +40,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Canadá',
-                code: 'CAN'
+                code: 'CAN',
+                flag: '\u{1F1E8}\u{1F1E6}'
             },
             {
                 name: 'Bósnia e Herzegovina',
-                code: 'BIH'
+                code: 'BIH',
+                flag: '\u{1F1E7}\u{1F1E6}'
             },
             {
                 name: 'Catar',
-                code: 'QAT'
+                code: 'QAT',
+                flag: '\u{1F1F6}\u{1F1E6}'
             },
             {
                 name: 'Suíça',
-                code: 'SUI'
+                code: 'SUI',
+                flag: '\u{1F1E8}\u{1F1ED}'
             }
         ]
     },
@@ -56,19 +65,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Brasil',
-                code: 'BRA'
+                code: 'BRA',
+                flag: '\u{1F1E7}\u{1F1F7}'
             },
             {
                 name: 'Marrocos',
-                code: 'MAR'
+                code: 'MAR',
+                flag: '\u{1F1F2}\u{1F1E6}'
             },
             {
                 name: 'Haiti',
-                code: 'HAI'
+                code: 'HAI',
+                flag: '\u{1F1ED}\u{1F1F9}'
             },
             {
                 name: 'Escócia',
-                code: 'SCO'
+                code: 'SCO',
+                flag: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}'
             }
         ]
     },
@@ -77,19 +90,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Estados Unidos',
-                code: 'USA'
+                code: 'USA',
+                flag: '\u{1F1FA}\u{1F1F8}'
             },
             {
                 name: 'Paraguai',
-                code: 'PAR'
+                code: 'PAR',
+                flag: '\u{1F1F5}\u{1F1FE}'
             },
             {
                 name: 'Austrália',
-                code: 'AUS'
+                code: 'AUS',
+                flag: '\u{1F1E6}\u{1F1FA}'
             },
             {
                 name: 'Turquia',
-                code: 'TUR'
+                code: 'TUR',
+                flag: '\u{1F1F9}\u{1F1F7}'
             }
         ]
     },
@@ -98,19 +115,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Alemanha',
-                code: 'GER'
+                code: 'GER',
+                flag: '\u{1F1E9}\u{1F1EA}'
             },
             {
                 name: 'Curaçao',
-                code: 'CUW'
+                code: 'CUW',
+                flag: '\u{1F1E8}\u{1F1FC}'
             },
             {
                 name: 'Costa do Marfim',
-                code: 'CIV'
+                code: 'CIV',
+                flag: '\u{1F1E8}\u{1F1EE}'
             },
             {
                 name: 'Equador',
-                code: 'ECU'
+                code: 'ECU',
+                flag: '\u{1F1EA}\u{1F1E8}'
             }
         ]
     },
@@ -118,20 +139,24 @@ export const groups: Group[] = [
         letter: 'F',
         teams: [
             {
-                name: 'Países Baixos',
-                code: 'NED'
+                name: 'Holanda',
+                code: 'NED',
+                flag: '\u{1F1F3}\u{1F1F1}'
             },
             {
                 name: 'Japão',
-                code: 'JPN'
+                code: 'JPN',
+                flag: '\u{1F1EF}\u{1F1F5}'
             },
             {
                 name: 'Suécia',
-                code: 'SWE'
+                code: 'SWE',
+                flag: '\u{1F1F8}\u{1F1EA}'
             },
             {
                 name: 'Tunísia',
-                code: 'TUN'
+                code: 'TUN',
+                flag: '\u{1F1F9}\u{1F1F3}'
             }
         ]
     },
@@ -140,19 +165,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Bélgica',
-                code: 'BEL'
+                code: 'BEL',
+                flag: '\u{1F1E7}\u{1F1EA}'
             },
             {
                 name: 'Egito',
-                code: 'EGY'
+                code: 'EGY',
+                flag: '\u{1F1EA}\u{1F1EC}'
             },
             {
                 name: 'Irã',
-                code: 'IRN'
+                code: 'IRN',
+                flag: '\u{1F1EE}\u{1F1F7}'
             },
             {
                 name: 'Nova Zelândia',
-                code: 'NZL'
+                code: 'NZL',
+                flag: '\u{1F1F3}\u{1F1FF}'
             }
         ]
     },
@@ -161,19 +190,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Espanha',
-                code: 'ESP'
+                code: 'ESP',
+                flag: '\u{1F1EA}\u{1F1F8}'
             },
             {
                 name: 'Cabo Verde',
-                code: 'CPV'
+                code: 'CPV',
+                flag: '\u{1F1E8}\u{1F1FB}'
             },
             {
                 name: 'Arábia Saudita',
-                code: 'KSA'
+                code: 'KSA',
+                flag: '\u{1F1F8}\u{1F1E6}'
             },
             {
                 name: 'Uruguai',
-                code: 'URU'
+                code: 'URU',
+                flag: '\u{1F1FA}\u{1F1FE}'
             }
         ]
     },
@@ -182,19 +215,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'França',
-                code: 'FRA'
+                code: 'FRA',
+                flag: '\u{1F1EB}\u{1F1F7}'
             },
             {
                 name: 'Senegal',
-                code: 'SEN'
+                code: 'SEN',
+                flag: '\u{1F1F8}\u{1F1F3}'
             },
             {
                 name: 'Iraque',
-                code: 'IRQ'
+                code: 'IRQ',
+                flag: '\u{1F1EE}\u{1F1F6}'
             },
             {
                 name: 'Noruega',
-                code: 'NOR'
+                code: 'NOR',
+                flag: '\u{1F1F3}\u{1F1F4}'
             }
         ]
     },
@@ -203,19 +240,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Argentina',
-                code: 'ARG'
+                code: 'ARG',
+                flag: '\u{1F1E6}\u{1F1F7}'
             },
             {
                 name: 'Argélia',
-                code: 'ALG'
+                code: 'ALG',
+                flag: '\u{1F1E9}\u{1F1FF}'
             },
             {
                 name: 'Áustria',
-                code: 'AUT'
+                code: 'AUT',
+                flag: '\u{1F1E6}\u{1F1F9}'
             },
             {
                 name: 'Jordânia',
-                code: 'JOR'
+                code: 'JOR',
+                flag: '\u{1F1EF}\u{1F1F4}'
             }
         ]
     },
@@ -224,19 +265,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Portugal',
-                code: 'POR'
+                code: 'POR',
+                flag: '\u{1F1F5}\u{1F1F9}'
             },
             {
                 name: 'RD Congo',
-                code: 'COD'
+                code: 'COD',
+                flag: '\u{1F1E8}\u{1F1E9}'
             },
             {
                 name: 'Uzbequistão',
-                code: 'UZB'
+                code: 'UZB',
+                flag: '\u{1F1FA}\u{1F1FF}'
             },
             {
                 name: 'Colômbia',
-                code: 'COL'
+                code: 'COL',
+                flag: '\u{1F1E8}\u{1F1F4}'
             }
         ]
     },
@@ -245,19 +290,23 @@ export const groups: Group[] = [
         teams: [
             {
                 name: 'Inglaterra',
-                code: 'ENG'
+                code: 'ENG',
+                flag: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}'
             },
             {
                 name: 'Croácia',
-                code: 'CRO'
+                code: 'CRO',
+                flag: '\u{1F1ED}\u{1F1F7}'
             },
             {
                 name: 'Gana',
-                code: 'GHA'
+                code: 'GHA',
+                flag: '\u{1F1EC}\u{1F1ED}'
             },
             {
                 name: 'Panamá',
-                code: 'PAN'
+                code: 'PAN',
+                flag: '\u{1F1F5}\u{1F1E6}'
             }
         ]
     }

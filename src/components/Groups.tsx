@@ -20,7 +20,7 @@ export function Groups() {
                                 {group.teams.map(team => (
                                     <div key={team.name}>
                                         <div className="font-bold py-3">
-                                            {team.name}
+                                            {team.code} - {team.name} {team.flag}
                                         </div>
                                         <div className="flex flex-col gap-5">
                                             <div className="flex gap-5">
