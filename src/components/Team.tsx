@@ -1,0 +1,46 @@
+import { stickers } from '../data/stickers'
+import type { Team } from '../types/team'
+
+type TeamProps = {
+    team: Team
+}
+
+export function Team({ team }: TeamProps) {
+    return (
+        <section key={team.name} className="flex flex-col">
+            <div className="font-bold py-3">
+                {team.code} - {team.name} {team.flag}
+            </div>
+            <div className="flex flex-col gap-5">
+                <div className="flex gap-5">
+                    {stickers.slice(0, 5).map(number => (
+                        <span key={number} className="bg-neutral-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number">
+                            {number}
+                        </span>
+                    ))}
+                </div>
+                <div className="flex gap-5">
+                    {stickers.slice(5, 10).map(number => (
+                        <span key={number} className="bg-gray-100 px-2 py-4  text-center flex-1 w-[10%] cursor-pointer rounded-full number">
+                            {number}
+                        </span>
+                    ))}
+                </div>
+                <div className="flex gap-5">
+                    {stickers.slice(10, 15).map(number => (
+                        <span key={number} className="bg-gray-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number">
+                            {number}
+                        </span>
+                    ))}
+                </div>
+                <div className="flex gap-5">
+                    {stickers.slice(15, 20).map(number => (
+                        <span key={number} className="bg-gray-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number">
+                            {number}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}

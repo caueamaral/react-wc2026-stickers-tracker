@@ -1,8 +1,4 @@
-export type Team = {
-    name: string
-    code: string
-    flag: string
-}
+import type { Team } from '../types/team'
 
 export type Group = {
     letter: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L'

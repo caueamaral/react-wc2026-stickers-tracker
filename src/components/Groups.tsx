@@ -1,5 +1,5 @@
-import { stickers } from '../data/stickers'
 import { groups } from '../data/groups'
+import { Team } from './Team'
 
 export function Groups() {
     return (
@@ -10,45 +10,11 @@ export function Groups() {
                         Group {group.letter}
                     </h2>
                 </header>
-                <section className="flex flex-col gap-10">
+                <div className="flex flex-col gap-10">
                     {group.teams.map(team => (
-                        <section key={team.name} className="flex flex-col">
-                            <div className="font-bold py-3">
-                                {team.code} - {team.name} {team.flag}
-                            </div>
-                            <div className="flex flex-col gap-5">
-                                <div className="flex gap-5">
-                                    {stickers.slice(0, 5).map(number => (
-                                        <span key={number} className="bg-neutral-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number">
-                                            {number}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div className="flex gap-5">
-                                    {stickers.slice(5, 10).map(number => (
-                                        <span key={number} className="bg-gray-100 px-2 py-4  text-center flex-1 w-[10%] cursor-pointer rounded-full number">
-                                            {number}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div className="flex gap-5">
-                                    {stickers.slice(10, 15).map(number => (
-                                        <span key={number} className="bg-gray-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number">
-                                            {number}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div className="flex gap-5">
-                                    {stickers.slice(15, 20).map(number => (
-                                        <span key={number} className="bg-gray-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number">
-                                            {number}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
+                        <Team key={team.code} team={team} />
                     ))}
-                </section>
+                </div>
             </article>
         ))
     )
