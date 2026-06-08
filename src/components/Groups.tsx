@@ -10,7 +10,7 @@ export function Groups() {
                         Group {group.letter}
                     </h2>
                 </header>
-                <main className="flex flex-col gap-10">
+                <section className="flex flex-col gap-10">
                     {group.teams.map(team => (
                         <section key={team.name} className="flex flex-col">
                             <div className="font-bold py-3">
@@ -48,7 +48,7 @@ export function Groups() {
                             </div>
                         </section>
                     ))}
-                </main>
+                </section>
             </article>
         ))
     )
