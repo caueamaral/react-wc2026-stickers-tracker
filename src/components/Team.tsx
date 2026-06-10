@@ -20,7 +20,7 @@ export function Team({ team, selectedStickers, onToggleSticker }: TeamProps) {
                             <span
                                 key={number}
                                 onClick={() => onToggleSticker(number)}
-                                className={`${selectedStickers.includes(number) ? 'selected' : ''} bg-neutral-100 px-2 py-4 text-center flex-1 w-[10%] cursor-pointer rounded-full number`}
+                                className={`${selectedStickers.includes(number) ? 'selected' : ''} bg-neutral-100 text-center flex flex-1 aspect-square items-center justify-center cursor-pointer rounded-full number`}
                             >
                                 {number}
                             </span>
