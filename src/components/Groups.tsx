@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { groups } from '../data/groups'
 import { Team } from './Team'
 
+const SELECTED_STICKERS_KEY = 'selectedStickers'
+
 type SelectedStickers = Record<string, number[]>
 
 export function Groups() {
-    const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>({})
+    const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
+        const stored = sessionStorage.getItem(SELECTED_STICKERS_KEY)
+
+        return stored ? JSON.parse(stored) : {}
+    })
+
+    useEffect(() => {
+        sessionStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
+    }, [selectedStickers])
 
     function onToggleSticker(teamCode: string, number: number) {
         setSelectedStickers(current => {
