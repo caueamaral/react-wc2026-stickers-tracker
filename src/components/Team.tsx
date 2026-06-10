@@ -10,12 +10,17 @@ type TeamProps = {
 export function Team({ team, selectedStickers, onToggleSticker }: TeamProps) {
     return (
         <details key={team.name} className="flex flex-col" open>
-            <summary className="font-bold py-3">
-                {team.code} - {team.name} {team.flag}
+            <summary className="font-bold py-3 cursor-pointer">
+                <span className="inline-flex items-center gap-1 align-middle">
+                    <span>{team.code}</span>
+                    -
+                    <span>{team.name}</span>
+                    <span className="text-3xl">{team.flag}</span>
+                </span>
             </summary>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4 mb-5">
                 {[0, 5, 10, 15].map(start => (
-                    <div key={start} className="flex gap-5">
+                    <div key={start} className="flex gap-4">
                         {stickers.slice(start, start + 5).map(number => (
                             <span
                                 key={number}
