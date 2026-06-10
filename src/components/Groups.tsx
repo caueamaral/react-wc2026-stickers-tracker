@@ -9,13 +9,13 @@ type SelectedStickers = Record<string, number[]>
 
 export function Groups() {
     const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
-        const stored = sessionStorage.getItem(SELECTED_STICKERS_KEY)
+        const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
 
         return stored ? JSON.parse(stored) : {}
     })
 
     useEffect(() => {
-        sessionStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
+        localStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
     }, [selectedStickers])
 
     function onToggleSticker(teamCode: string, number: number) {
@@ -35,12 +35,12 @@ export function Groups() {
     return (
         groups.map(group => (
             <article key={group.letter} className="bg-white gap-10 p-5 rounded-md w-100">
-                <header>
+                <header className="mb-5">
                     <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-5">
                         Group {group.letter}
                     </h2>
                 </header>
-                <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-5">
                     {group.teams.map(team => (
                         <Team
                             key={team.code}
