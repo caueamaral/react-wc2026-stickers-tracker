@@ -2,7 +2,7 @@ import { Groups } from './Groups'
 
 export function Main() {
     return (
-        <main className="flex flex-col items-center gap-10">
+        <main className="flex flex-wrap justify-center gap-10 px-10">
             <Groups />
         </main>
     )
