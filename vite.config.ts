@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/react-wc2026-stickers-tracker/',
+
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),
