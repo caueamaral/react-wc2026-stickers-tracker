@@ -43,8 +43,10 @@ export function Groups({ searchTeam }: GroupsProps) {
             ...group,
             teams: group.teams.filter(team =>
                 normalizedSearch === '' ||
-                normalizedSearch === team.code ||
-                team.name.toUpperCase().includes(normalizedSearch)
+                (
+                    normalizedSearch.length >= 3 &&
+                    team.name.toUpperCase().includes(normalizedSearch)
+                )
             )
         }))
         .filter(group => group.teams.length > 0)
