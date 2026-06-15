@@ -9,11 +9,15 @@ function App() {
   const [areStickersLocked, setAreStickersLocked] = useState<boolean>(true)
   const [searchTeam, setSearchTeam] = useState<string>('')
 
+  function toggleStickersLock() {
+    setAreStickersLocked(current => !current)
+  }
+
   return (
     <div className="py-10 mx-auto">
       <Lock
         areStickersLocked={areStickersLocked}
-        setAreStickersLocked={setAreStickersLocked}
+        onToggle={toggleStickersLock}
       />
       <Header
         searchTeam={searchTeam}

@@ -1,17 +1,15 @@
-import type { Dispatch, SetStateAction } from 'react'
-
 type LockedProps = {
     areStickersLocked: boolean
-    setAreStickersLocked: Dispatch<SetStateAction<boolean>>
+    onToggle: () => void
 }
 
-export function Lock({ areStickersLocked, setAreStickersLocked }: LockedProps) {
+export function Lock({ areStickersLocked, onToggle }: LockedProps) {
     return (
         <button
             type="button"
             aria-label={areStickersLocked ? 'Unlock stickers' : 'Lock stickers'}
             className="fixed right-2 top-2 cursor-pointer"
-            onClick={() => setAreStickersLocked(current => !current)}
+            onClick={onToggle}
         >
             {areStickersLocked ? (
                 <svg
