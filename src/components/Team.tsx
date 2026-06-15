@@ -23,7 +23,8 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                 {[0, 5, 10, 15].map(start => (
                     <div key={start} className="flex gap-4">
                         {stickers.slice(start, start + 5).map(number => (
-                            <span
+                            <button
+                                disabled={areStickersLocked}
                                 key={number}
                                 className={`
                                     ${selectedStickers.includes(number) ? 'selected' : ''}
@@ -38,7 +39,7 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                                 }}
                             >
                                 {number}
-                            </span>
+                            </button>
                         ))}
                     </div>
                 ))}
