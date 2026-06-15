@@ -8,10 +8,11 @@ const SELECTED_STICKERS_KEY = 'selectedStickers'
 type SelectedStickers = Record<string, number[]>
 
 type GroupsProps = {
+    areStickersLocked: boolean
     searchTeam: string
 }
 
-export function Groups({ searchTeam }: GroupsProps) {
+export function Groups({ areStickersLocked, searchTeam }: GroupsProps) {
     const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
         const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
 
@@ -63,8 +64,9 @@ export function Groups({ searchTeam }: GroupsProps) {
                     {group.teams.map(team => (
                         <Team
                             key={team.code}
-                            team={team}
                             onToggleSticker={(number) => onToggleSticker(team.code, number)}
+                            areStickersLocked={areStickersLocked}
+                            team={team}
                             selectedStickers={selectedStickers[team.code] ?? []}
                         />
                     ))}
