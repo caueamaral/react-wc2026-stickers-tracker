@@ -16,7 +16,15 @@ export function Groups({ areStickersLocked, searchTeam }: GroupsProps) {
     const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
         const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
 
-        return stored ? JSON.parse(stored) : {}
+        if (!stored) {
+            return {}
+        }
+
+        try {
+            return JSON.parse(stored)
+        } catch {
+            return {}
+        }
     })
 
     function onToggleSticker(teamCode: string, number: number) {
