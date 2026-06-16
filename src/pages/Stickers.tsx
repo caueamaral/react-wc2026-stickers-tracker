@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 
 import { groups } from '../data/groups'
-import { Team } from './Team'
+import { Team } from '../components/Team'
 
 const SELECTED_STICKERS_KEY = 'selectedStickers'
 
 type SelectedStickers = Record<string, number[]>
 
-type GroupsProps = {
+type StickersProps = {
     areStickersLocked: boolean
     searchTeam: string
 }
 
-export function Groups({ areStickersLocked, searchTeam }: GroupsProps) {
+export function Stickers({ areStickersLocked, searchTeam }: StickersProps) {
     const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
         const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
 
