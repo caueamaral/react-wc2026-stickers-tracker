@@ -1,11 +1,11 @@
 import type { Dispatch, SetStateAction } from 'react'
 
-type HeaderProps = {
+type SearchProps = {
     searchTeam: string
     setSearchTeam: Dispatch<SetStateAction<string>>
 }
 
-export function Search({ searchTeam, setSearchTeam }: HeaderProps ) {
+export function Search({ searchTeam, setSearchTeam }: SearchProps) {
     return (
         <header className="flex flex-col items-center mb-5 px-10">
             <form className="flex w-90 max-w-full">

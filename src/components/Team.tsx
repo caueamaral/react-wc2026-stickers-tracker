@@ -31,12 +31,7 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                                     ${areStickersLocked ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-neutral-200'}
                                     text-center flex flex-1 aspect-square items-center justify-center rounded-full number bg-neutral-100
                                 `}
-                                onClick={() => {
-
-                                    if (!areStickersLocked) {
-                                        onToggleSticker(number)
-                                    }
-                                }}
+                                onClick={() => onToggleSticker(number)}
                             >
                                 {number}
                             </button>

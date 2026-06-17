@@ -1,85 +1,36 @@
-import { useState, useEffect } from 'react'
+import { Lock } from '../components/Lock'
+import { Search } from '../components/Search'
+import { Groups } from '../components/Groups'
 
-import { groups } from '../data/groups'
-import { Team } from '../components/Team'
-
-const SELECTED_STICKERS_KEY = 'selectedStickers'
-
-type SelectedStickers = Record<string, number[]>
+import type { Dispatch, SetStateAction } from 'react'
 
 type StickersProps = {
     areStickersLocked: boolean
+    setSearchTeam: Dispatch<SetStateAction<string>>
     searchTeam: string
+    toggleStickersLock: () => void
 }
 
-export function Stickers({ areStickersLocked, searchTeam }: StickersProps) {
-    const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
-        const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
-
-        if (!stored) {
-            return {}
-        }
-
-        try {
-            return JSON.parse(stored)
-        } catch {
-            return {}
-        }
-    })
-
-    function onToggleSticker(teamCode: string, number: number) {
-        setSelectedStickers(current => {
-          const teamStickers = current[teamCode] ?? []
-          
-          return {
-            ...current,
-
-            [teamCode]: teamStickers.includes(number)
-                ? teamStickers.filter(n => n !== number)
-                : [...teamStickers, number]
-          }
-        })
-    }
-
-    useEffect(() => {
-        localStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
-    }, [selectedStickers])
-
-    const normalizedSearch = searchTeam.trim().toUpperCase()
-
-    const filteredGroups = groups
-        .map(group => ({
-            ...group,
-            teams: group.teams.filter(team =>
-                normalizedSearch === '' ||
-                (
-                    normalizedSearch.length >= 3 &&
-                    team.name.toUpperCase().includes(normalizedSearch)
-                )
-            )
-        }))
-        .filter(group => group.teams.length > 0)
-
+export function Stickers({
+    areStickersLocked,
+    setSearchTeam,
+    searchTeam,
+    toggleStickersLock
+}: StickersProps) {
     return (
-        filteredGroups.map(group => (
-            <article key={group.letter} className="bg-white gap-10 p-5 rounded-md w-90">
-                <header className="mb-4">
-                    <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-5">
-                        Group {group.letter}
-                    </h2>
-                </header>
-                <div className="flex flex-col gap-1">
-                    {group.teams.map(team => (
-                        <Team
-                            key={team.code}
-                            onToggleSticker={(number) => onToggleSticker(team.code, number)}
-                            areStickersLocked={areStickersLocked}
-                            team={team}
-                            selectedStickers={selectedStickers[team.code] ?? []}
-                        />
-                    ))}
-                </div>
-            </article>
-        ))
+        <main className="flex flex-wrap justify-center gap-10 px-10">
+            <Lock
+                areStickersLocked={areStickersLocked}
+                onToggle={toggleStickersLock}
+            />
+            <Search
+                searchTeam={searchTeam}
+                setSearchTeam={setSearchTeam}
+            />
+            <Groups
+                areStickersLocked={areStickersLocked}
+                searchTeam={searchTeam}
+            />
+        </main>
     )
 }

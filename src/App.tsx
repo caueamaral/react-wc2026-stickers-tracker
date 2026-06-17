@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import { Lock } from './components/Lock'
+import { Stickers } from './pages/Stickers'
+import { Statistics } from './pages/Statistics'
+
 import { Header } from './components/Header'
-import { Search } from './components/Search'
-import { Main } from './components/Main'
 import { Footer } from './components/Footer'
 
 import type { Page } from './types/page'
@@ -21,20 +21,20 @@ function App() {
 
   return (
     <div className="pt-10 pb-30 mx-auto">
-      <Lock
-        areStickersLocked={areStickersLocked}
-        onToggle={toggleStickersLock}
-      />
       <Header />
-      <Search
-        searchTeam={searchTeam}
-        setSearchTeam={setSearchTeam}
-      />
-      <Main
-        currentPage={currentPage}
-        areStickersLocked={areStickersLocked}
-        searchTeam={searchTeam}
-      />
+
+      {currentPage === 'stickers' && (
+        <Stickers
+          areStickersLocked={areStickersLocked}
+          searchTeam={searchTeam}
+          setSearchTeam={setSearchTeam}
+          toggleStickersLock={toggleStickersLock}
+        />
+      )}
+      {currentPage === 'statistics' && (
+        <Statistics />
+      )}
+      
       <Footer
         currentPage={currentPage}
         onNavigate={setCurrentPage}
