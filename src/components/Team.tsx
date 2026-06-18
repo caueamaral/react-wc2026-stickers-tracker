@@ -1,4 +1,5 @@
-import { stickers } from '../data/stickers'
+import { groupStickers } from '../data/stickers'
+import { StickerButton } from './StickerButton'
 import type { Team } from '../types/team'
 
 type TeamProps = {
@@ -9,8 +10,10 @@ type TeamProps = {
 }
 
 export function Team({ areStickersLocked, team, selectedStickers, onToggleSticker }: TeamProps) {
+    const isTeamCompleted = selectedStickers.length === groupStickers.length
+
     return (
-        <details key={team.name} className="flex flex-col" open>
+        <details key={team.name} className="flex flex-col" open={!isTeamCompleted}>
             <summary className="font-bold py-3 cursor-pointer">
                 <span className="inline-flex items-center gap-1 align-middle">
                     <span>{team.code}</span>
@@ -19,29 +22,15 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                     <span className="text-3xl">{team.flag}</span>
                 </span>
             </summary>
-            <div className="flex flex-col gap-4 mb-5">
-                {[0, 5, 10, 15].map(start => (
-                    <div key={start} className="flex gap-4">
-                        {stickers.slice(start, start + 5).map(number => (
-                            <button
-                                disabled={areStickersLocked}
-                                key={number}
-                                className={`
-                                    ${selectedStickers.includes(number) ? 'selected' : ''}
-                                    ${areStickersLocked ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-neutral-200'}
-                                    text-center flex flex-1 aspect-square items-center justify-center rounded-full number bg-neutral-100
-                                `}
-                                onClick={() => {
-
-                                    if (!areStickersLocked) {
-                                        onToggleSticker(number)
-                                    }
-                                }}
-                            >
-                                {number}
-                            </button>
-                        ))}
-                    </div>
+            <div className="grid grid-cols-5 gap-4 mb-5">
+                {groupStickers.map(number => (
+                    <StickerButton
+                        key={number}
+                        number={number}
+                        areStickersLocked={areStickersLocked}
+                        selectedStickers={selectedStickers}
+                        onToggleSticker={onToggleSticker}
+                    />
                 ))}
             </div>
         </details>
