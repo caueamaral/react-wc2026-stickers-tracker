@@ -20,19 +20,15 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                     <span className="text-3xl">{team.flag}</span>
                 </span>
             </summary>
-            <div className="flex flex-col gap-4 mb-5">
-                {[0, 5, 10, 15].map(start => (
-                    <div key={start} className="flex gap-4">
-                        {groupStickers.slice(start, start + 5).map(number => (
-                            <StickerButton
-                                key={number}
-                                number={number}
-                                areStickersLocked={areStickersLocked}
-                                selectedStickers={selectedStickers}
-                                onToggleSticker={onToggleSticker}
-                            />
-                        ))}
-                    </div>
+            <div className="grid grid-cols-5 gap-4 mb-5">
+                {groupStickers.map(number => (
+                    <StickerButton
+                        key={number}
+                        number={number}
+                        areStickersLocked={areStickersLocked}
+                        selectedStickers={selectedStickers}
+                        onToggleSticker={onToggleSticker}
+                    />
                 ))}
             </div>
         </details>

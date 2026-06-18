@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Lock } from '../components/Lock'
 import { Search } from '../components/Search'
 import { FWCs } from '../components/FWCs'
+import { CocaCola } from '../components/CocaCola'
 import { Groups } from '../components/Groups'
 
 import type { Dispatch, SetStateAction } from 'react'
@@ -76,6 +77,11 @@ export function Stickers({
                 onToggleSticker={onToggleSticker}
                 areStickersLocked={areStickersLocked}
                 searchTeam={searchTeam}
+            />
+            <CocaCola
+                selectedStickers={selectedStickers.CocaCola ?? []}
+                onToggleSticker={number => onToggleSticker('CocaCola', number)}
+                areStickersLocked={areStickersLocked}
             />
         </main>
     )

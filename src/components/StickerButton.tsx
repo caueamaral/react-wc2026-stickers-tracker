@@ -26,7 +26,7 @@ export function StickerButton({
                     ? 'cursor-not-allowed'
                     : 'cursor-pointer hover:bg-neutral-200'
                 }
-                text-center flex flex-1 aspect-square items-center justify-center rounded-full number bg-neutral-100
+                aspect-square rounded-full number bg-neutral-100
             `}
             onClick={() => onToggleSticker(number)}
         >
