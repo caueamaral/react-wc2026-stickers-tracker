@@ -58,7 +58,7 @@ export function Stickers({
     }, [selectedStickers])
 
     return (
-        <main className="flex flex-wrap justify-center gap-10 px-10">
+        <main className="flex flex-col items-center justify-center gap-10 px-10">
             <Lock
                 areStickersLocked={areStickersLocked}
                 onToggle={toggleStickersLock}
@@ -67,22 +67,24 @@ export function Stickers({
                 searchTeam={searchTeam}
                 setSearchTeam={setSearchTeam}
             />
-            <FWCs
-                selectedStickers={selectedStickers.FWC ?? []}
-                onToggleSticker={number => onToggleSticker('FWC', number)}
-                areStickersLocked={areStickersLocked}
-            />
-            <Groups
-                selectedStickers={selectedStickers}
-                onToggleSticker={onToggleSticker}
-                areStickersLocked={areStickersLocked}
-                searchTeam={searchTeam}
-            />
-            <CocaCola
-                selectedStickers={selectedStickers.CocaCola ?? []}
-                onToggleSticker={number => onToggleSticker('CocaCola', number)}
-                areStickersLocked={areStickersLocked}
-            />
+            <div className="flex flex-wrap items-start justify-center gap-10">
+                <FWCs
+                    selectedStickers={selectedStickers.FWC ?? []}
+                    onToggleSticker={number => onToggleSticker('FWC', number)}
+                    areStickersLocked={areStickersLocked}
+                />
+                <Groups
+                    selectedStickers={selectedStickers}
+                    onToggleSticker={onToggleSticker}
+                    areStickersLocked={areStickersLocked}
+                    searchTeam={searchTeam}
+                />
+                <CocaCola
+                    selectedStickers={selectedStickers.CocaCola ?? []}
+                    onToggleSticker={number => onToggleSticker('CocaCola', number)}
+                    areStickersLocked={areStickersLocked}
+                />
+            </div>
         </main>
     )
 }

@@ -7,7 +7,7 @@ type SearchProps = {
 
 export function Search({ searchTeam, setSearchTeam }: SearchProps) {
     return (
-        <header className="flex flex-col items-center mb-5 px-10">
+        <header className="flex flex-col items-center px-10">
             <form className="flex w-90 max-w-full">
                 <input
                     type="text"

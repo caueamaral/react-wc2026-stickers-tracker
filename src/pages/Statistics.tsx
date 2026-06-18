@@ -4,7 +4,7 @@ export function Statistics() {
     const incompleteStickers = 0
 
     return (
-        <main className="flex flex-wrap justify-center gap-5 px-10">
+        <main className="flex flex-col items-center justify-center gap-10 px-10">
             <article className="bg-white p-4 rounded-md w-90">
                 Total: {totalStickers}
             </article>
