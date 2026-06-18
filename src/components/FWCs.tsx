@@ -1,4 +1,5 @@
 import { fwcStickers } from '../data/stickers'
+import { GroupHeader } from './GroupHeader'
 import { StickerButton } from './StickerButton'
 
 type FWCsProps = {
@@ -14,11 +15,7 @@ export function FWCs({
 }: FWCsProps) {
     return (
         <article className="bg-white gap-10 p-5 rounded-md w-90">
-            <header className="mb-4">
-                <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-3">
-                    FWC
-                </h2>
-            </header>
+            <GroupHeader text="FWC" />
             <div className="flex flex-col gap-4">
                 {[0, 5, 10, 15].map(start => (
                     <div key={start} className="flex gap-4">

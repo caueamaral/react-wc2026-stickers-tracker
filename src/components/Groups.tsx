@@ -1,5 +1,6 @@
 import { groups } from '../data/groups'
-import { Team } from '../components/Team'
+import { GroupHeader } from './GroupHeader'
+import { Team } from './Team'
 
 type GroupsProps = {
     selectedStickers: Record<string, number[]>
@@ -32,11 +33,7 @@ export function Groups({
     return (
         filteredGroups.map(group => (
             <article key={group.letter} className="bg-white gap-10 p-5 rounded-md w-90">
-                <header className="mb-4">
-                    <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-3">
-                        Group {group.letter}
-                    </h2>
-                </header>
+                <GroupHeader text={`Group ${group.letter}`} />
                 <div className="flex flex-col gap-1">
                     {group.teams.map(team => (
                         <Team
