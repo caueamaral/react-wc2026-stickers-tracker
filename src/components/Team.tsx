@@ -1,4 +1,5 @@
 import { groupStickers } from '../data/stickers'
+import { StickerButton } from './StickerButton'
 import type { Team } from '../types/team'
 
 type TeamProps = {
@@ -23,25 +24,13 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                 {[0, 5, 10, 15].map(start => (
                     <div key={start} className="flex gap-4">
                         {groupStickers.slice(start, start + 5).map(number => (
-                            <button
+                            <StickerButton
                                 key={number}
-                                disabled={areStickersLocked}
-                                className={`
-                                    ${
-                                        selectedStickers.includes(number)
-                                        ? 'selected'
-                                        : ''
-                                    }
-                                    ${areStickersLocked
-                                        ? 'cursor-not-allowed'
-                                        : 'cursor-pointer hover:bg-neutral-200'
-                                    }
-                                    text-center flex flex-1 aspect-square items-center justify-center rounded-full number bg-neutral-100
-                                `}
-                                onClick={() => onToggleSticker(number)}
-                            >
-                                {number}
-                            </button>
+                                number={number}
+                                areStickersLocked={areStickersLocked}
+                                selectedStickers={selectedStickers}
+                                onToggleSticker={onToggleSticker}
+                            />
                         ))}
                     </div>
                 ))}
