@@ -10,8 +10,10 @@ type TeamProps = {
 }
 
 export function Team({ areStickersLocked, team, selectedStickers, onToggleSticker }: TeamProps) {
+    const isTeamCompleted = selectedStickers.length === groupStickers.length
+
     return (
-        <details key={team.name} className="flex flex-col" open>
+        <details key={team.name} className="flex flex-col" open={!isTeamCompleted}>
             <summary className="font-bold py-3 cursor-pointer">
                 <span className="inline-flex items-center gap-1 align-middle">
                     <span>{team.code}</span>

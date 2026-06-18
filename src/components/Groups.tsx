@@ -10,10 +10,10 @@ type GroupsProps = {
 }
 
 export function Groups({
-        selectedStickers,
-        onToggleSticker,
-        areStickersLocked,
-        searchTeam
+    selectedStickers,
+    onToggleSticker,
+    areStickersLocked,
+    searchTeam
 }: GroupsProps) {
     const normalizedSearch = searchTeam.trim().toUpperCase()
 
