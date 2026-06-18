@@ -1,50 +1,19 @@
-import { useState, useEffect } from 'react'
-
 import { groups } from '../data/groups'
 import { Team } from '../components/Team'
 
-const SELECTED_STICKERS_KEY = 'selectedStickers'
-
-type SelectedStickers = Record<string, number[]>
-
 type GroupsProps = {
+    selectedStickers: Record<string, number[]>
+    onToggleSticker: (temCode: string, number: number) => void
     areStickersLocked: boolean
     searchTeam: string
 }
 
-export function Groups({ areStickersLocked, searchTeam }: GroupsProps) {
-    const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
-        const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
-
-        if (!stored) {
-            return {}
-        }
-
-        try {
-            return JSON.parse(stored)
-        } catch {
-            return {}
-        }
-    })
-
-    function onToggleSticker(teamCode: string, number: number) {
-        setSelectedStickers(current => {
-          const teamStickers = current[teamCode] ?? []
-          
-          return {
-            ...current,
-
-            [teamCode]: teamStickers.includes(number)
-                ? teamStickers.filter(n => n !== number)
-                : [...teamStickers, number]
-          }
-        })
-    }
-
-    useEffect(() => {
-        localStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
-    }, [selectedStickers])
-
+export function Groups({
+        selectedStickers,
+        onToggleSticker,
+        areStickersLocked,
+        searchTeam
+}: GroupsProps) {
     const normalizedSearch = searchTeam.trim().toUpperCase()
 
     const filteredGroups = groups
@@ -64,7 +33,7 @@ export function Groups({ areStickersLocked, searchTeam }: GroupsProps) {
         filteredGroups.map(group => (
             <article key={group.letter} className="bg-white gap-10 p-5 rounded-md w-90">
                 <header className="mb-4">
-                    <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-5">
+                    <h2 className="bg-neutral-600 text-white text-2xl font-medium text-center uppercase p-3">
                         Group {group.letter}
                     </h2>
                 </header>
