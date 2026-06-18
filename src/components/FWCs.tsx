@@ -18,29 +18,31 @@ export function FWCs({
                     FWC
                 </h2>
             </header>
-            <div className="flex">
-                {
-                    fwcStickers.map(number => (
-                        <button
-                            key={number}
-                            disabled={areStickersLocked}
-                            className={`
-                                ${selectedStickers.includes(number)
-                                    ? 'selected'
-                                    : ''
-                                }
-                                ${areStickersLocked
-                                    ? 'cursor-not-allowed'
-                                    : 'cursor-pointer hover:bg-neutral-200'
-                                }
-                                text-center flex flex-1 aspect-square items-center justify-center rounded-full number bg-neutral-100
-                            `}
-                            onClick={() => onToggleSticker(number)}
-                        >
-                            {number === 0 ? '00' : number}
-                        </button>
-                    ))
-                }
+            <div className="flex flex-col gap-4">
+                {[0, 5, 10, 15].map(start => (
+                    <div key={start} className="flex gap-4">
+                        {fwcStickers.slice(start, start + 5).map(number => (
+                            <button
+                                key={number}
+                                disabled={areStickersLocked}
+                                className={`
+                                    ${selectedStickers.includes(number)
+                                        ? 'selected'
+                                        : ''
+                                    }
+                                    ${areStickersLocked
+                                        ? 'cursor-not-allowed'
+                                        : 'cursor-pointer hover:bg-neutral-200'
+                                    }
+                                    text-center flex flex-1 aspect-square items-center justify-center rounded-full number bg-neutral-100
+                                `}
+                                onClick={() => onToggleSticker(number)}
+                            >
+                                {number === 0 ? '00' : number}
+                            </button>
+                        ))}
+                    </div>
+                ))}
             </div>
         </article>
     )
