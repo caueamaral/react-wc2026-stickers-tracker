@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { fwcStickers, cocaColaStickers } from '../data/stickers'
+import { fwcStickers, groupStickers, cocaColaStickers } from '../data/stickers'
+import { groups } from '../data/groups'
 
 import { Lock } from '../components/Lock'
 import { FWCs } from '../components/FWCs'
@@ -54,6 +55,19 @@ export function MissingStickers({
         !selectedStickers.FWC?.includes(number)
     )
 
+    const missingGroups = groups
+        .map(group => ({
+            ...group,
+            teams: group.teams.filter(team => {
+                const missingTeamStickers = groupStickers.filter(number =>
+                    !selectedStickers[team.code]?.includes(number)
+                )
+
+                return missingTeamStickers.length > 0
+            })
+        }))
+        .filter(group => group.teams.length > 0)
+
     const missingCocaColaStickers = cocaColaStickers.filter(number =>
         !selectedStickers.CocaCola?.includes(number)
     )
@@ -76,6 +90,7 @@ export function MissingStickers({
                     areStickersLocked={areStickersLocked}
                 />
                 <Groups
+                    groups={missingGroups}
                     selectedStickers={selectedStickers}
                     onToggleSticker={onToggleSticker}
                     areStickersLocked={areStickersLocked}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { fwcStickers, cocaColaStickers } from '../data/stickers'
+import { groups } from '../data/groups'
 
 import { Lock } from '../components/Lock'
 import { Search } from '../components/Search'
@@ -77,6 +78,7 @@ export function AllStickers({
                     areStickersLocked={areStickersLocked}
                 />
                 <Groups
+                    groups={groups}
                     selectedStickers={selectedStickers}
                     onToggleSticker={onToggleSticker}
                     areStickersLocked={areStickersLocked}

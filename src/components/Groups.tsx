@@ -1,15 +1,18 @@
-import { groups } from '../data/groups'
+import type { Group } from '../data/groups'
+
 import { GroupHeader } from './GroupHeader'
 import { Team } from './Team'
 
 type GroupsProps = {
+    groups: Group[]
     selectedStickers: Record<string, number[]>
-    onToggleSticker: (temCode: string, number: number) => void
+    onToggleSticker: (teamCode: string, number: number) => void
     areStickersLocked: boolean
     searchTeam: string
 }
 
 export function Groups({
+    groups,
     selectedStickers,
     onToggleSticker,
     areStickersLocked,
