@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
-import { Stickers } from './pages/Stickers'
+import { AllStickers } from './pages/AllStickers'
+import { CompletedStickers } from './pages/CompletedStickers'
+import { MissingStickers } from './pages/MissingStickers'
 import { Statistics } from './pages/Statistics'
 
 import { Header } from './components/Header'
@@ -11,7 +13,7 @@ import type { Page } from './types/page'
 import './css/styles.css'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('stickers')
+  const [currentPage, setCurrentPage] = useState<Page>('all-stickers')
   const [areStickersLocked, setAreStickersLocked] = useState<boolean>(true)
   const [searchTeam, setSearchTeam] = useState<string>('')
 
@@ -23,14 +25,31 @@ function App() {
     <div className="pt-10 pb-30 mx-auto">
       <Header />
 
-      {currentPage === 'stickers' && (
-        <Stickers
+      {currentPage === 'all-stickers' && (
+        <AllStickers
           areStickersLocked={areStickersLocked}
           searchTeam={searchTeam}
           setSearchTeam={setSearchTeam}
           toggleStickersLock={toggleStickersLock}
         />
       )}
+      
+      {currentPage === 'completed-stickers' && (
+        <CompletedStickers
+          areStickersLocked={areStickersLocked}
+          searchTeam={searchTeam}
+          toggleStickersLock={toggleStickersLock}
+        />
+      )}
+
+      {currentPage === 'missing-stickers' && (
+        <MissingStickers
+          areStickersLocked={areStickersLocked}
+          searchTeam={searchTeam}
+          toggleStickersLock={toggleStickersLock}
+        />
+      )}
+
       {currentPage === 'statistics' && (
         <Statistics />
       )}

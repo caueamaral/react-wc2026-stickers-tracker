@@ -1,14 +1,15 @@
-import { fwcStickers } from '../data/stickers'
 import { GroupHeader } from './GroupHeader'
 import { StickerButton } from './StickerButton'
 
 type FWCsProps = {
+    stickers: number[]
     selectedStickers: number[]
     onToggleSticker: (number: number) => void
     areStickersLocked: boolean
 }
 
 export function FWCs({
+    stickers,
     selectedStickers,
     onToggleSticker,
     areStickersLocked
@@ -17,7 +18,7 @@ export function FWCs({
         <article className="bg-white gap-10 p-5 rounded-md w-90">
             <GroupHeader text="FWC" />
             <div className="grid grid-cols-5 gap-4">
-                {fwcStickers.map(number => (
+                {stickers.map(number => (
                     <StickerButton
                         key={number}
                         number={number}

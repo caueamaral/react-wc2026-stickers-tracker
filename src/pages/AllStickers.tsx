@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { fwcStickers, cocaColaStickers } from '../data/stickers'
+
 import { Lock } from '../components/Lock'
 import { Search } from '../components/Search'
 import { FWCs } from '../components/FWCs'
@@ -19,7 +21,7 @@ type StickersProps = {
 
 const SELECTED_STICKERS_KEY = 'selectedStickers'
 
-export function Stickers({
+export function AllStickers({
     areStickersLocked,
     setSearchTeam,
     searchTeam,
@@ -69,6 +71,7 @@ export function Stickers({
             />
             <div className="flex flex-wrap items-start justify-center gap-10">
                 <FWCs
+                    stickers={fwcStickers}
                     selectedStickers={selectedStickers.FWC ?? []}
                     onToggleSticker={number => onToggleSticker('FWC', number)}
                     areStickersLocked={areStickersLocked}
@@ -80,6 +83,7 @@ export function Stickers({
                     searchTeam={searchTeam}
                 />
                 <CocaCola
+                    stickers={cocaColaStickers}
                     selectedStickers={selectedStickers.CocaCola ?? []}
                     onToggleSticker={number => onToggleSticker('CocaCola', number)}
                     areStickersLocked={areStickersLocked}
