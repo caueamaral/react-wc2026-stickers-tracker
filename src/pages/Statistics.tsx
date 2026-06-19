@@ -33,7 +33,12 @@ export function Statistics() {
 
     const missingStickers = totalStickers - completedStickers
 
-    const percentageCompleted = (completedStickers / totalStickers * 100).toFixed(2).replace('.', ',')
+    const percentageCompleted = completedStickers / totalStickers * 100
+
+    const formattedPercentage =
+        Number.isInteger(percentageCompleted)
+            ? percentageCompleted.toString()
+            : percentageCompleted.toFixed(2).replace('.', ',')
 
     return (
         <main className="flex flex-col items-center justify-center gap-5 px-10">
@@ -54,7 +59,7 @@ export function Statistics() {
                     </div>
                 </section>
                 <section className="bg-white p-4 text-2xl text-center font-medium rounded-md">
-                    {percentageCompleted}% completed
+                    {formattedPercentage}% completed
                 </section>
             </article>
         </main>
