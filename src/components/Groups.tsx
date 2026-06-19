@@ -1,5 +1,7 @@
 import type { Group } from '../data/groups'
 
+import { groupStickers } from '../data/stickers'
+
 import { GroupHeader } from './GroupHeader'
 import { Team } from './Team'
 
@@ -40,6 +42,7 @@ export function Groups({
                 <div className="flex flex-col gap-1">
                     {group.teams.map(team => (
                         <Team
+                            stickers={groupStickers}
                             key={team.code}
                             onToggleSticker={(number) => onToggleSticker(team.code, number)}
                             areStickersLocked={areStickersLocked}

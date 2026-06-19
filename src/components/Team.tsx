@@ -3,13 +3,19 @@ import { StickerButton } from './StickerButton'
 import type { Team } from '../types/team'
 
 type TeamProps = {
+    stickers: number[]
     areStickersLocked: boolean
     team: Team
     selectedStickers: number[]
     onToggleSticker: (number: number) => void
 }
 
-export function Team({ areStickersLocked, team, selectedStickers, onToggleSticker }: TeamProps) {
+export function Team({
+    stickers,
+    areStickersLocked,
+    team, selectedStickers,
+    onToggleSticker
+}: TeamProps) {
     const isTeamCompleted = selectedStickers.length === groupStickers.length
 
     return (
@@ -23,7 +29,7 @@ export function Team({ areStickersLocked, team, selectedStickers, onToggleSticke
                 </span>
             </summary>
             <div className="grid grid-cols-5 gap-4 mb-5">
-                {groupStickers.map(number => (
+                {stickers.map(number => (
                     <StickerButton
                         key={number}
                         number={number}
