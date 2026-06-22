@@ -1,7 +1,5 @@
 import type { Group } from '../data/groups'
 
-import { groupStickers } from '../data/stickers'
-
 import { GroupHeader } from './GroupHeader'
 import { Team } from './Team'
 
