@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { AllStickers } from './pages/AllStickers'
-import { CompletedStickers } from './pages/CompletedStickers'
 import { MissingStickers } from './pages/MissingStickers'
 import { Statistics } from './pages/Statistics'
 
@@ -30,14 +29,6 @@ function App() {
           areStickersLocked={areStickersLocked}
           searchTeam={searchTeam}
           setSearchTeam={setSearchTeam}
-          toggleStickersLock={toggleStickersLock}
-        />
-      )}
-      
-      {currentPage === 'completed-stickers' && (
-        <CompletedStickers
-          areStickersLocked={areStickersLocked}
-          searchTeam={searchTeam}
           toggleStickersLock={toggleStickersLock}
         />
       )}

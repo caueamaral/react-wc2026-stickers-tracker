@@ -21,18 +21,6 @@ export function Footer({ currentPage, onNavigate }: FooterProps) {
                 <span className="text-sm">All Stickers</span>
             </button>
             <button
-                onClick={() => onNavigate('completed-stickers')}
-                className={`
-                    flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
-                    ${currentPage === 'completed-stickers' ? 'text-gray-700' : 'text-gray-300'}
-                `}
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-                <span className="text-sm">Completed</span>
-            </button>
-            <button
                 onClick={() => onNavigate('missing-stickers')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
