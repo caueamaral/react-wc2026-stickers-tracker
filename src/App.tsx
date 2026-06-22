@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { AllStickers } from './pages/AllStickers'
+import { Stickers } from './pages/Stickers'
 import { MissingStickers } from './pages/MissingStickers'
 import { Statistics } from './pages/Statistics'
 
@@ -25,7 +25,7 @@ function App() {
       <Header />
 
       {currentPage === 'all-stickers' && (
-        <AllStickers
+        <Stickers
           areStickersLocked={areStickersLocked}
           searchTeam={searchTeam}
           setSearchTeam={setSearchTeam}

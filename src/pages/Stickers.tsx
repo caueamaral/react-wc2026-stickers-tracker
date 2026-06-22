@@ -22,7 +22,7 @@ type StickersProps = {
 
 const SELECTED_STICKERS_KEY = 'selectedStickers'
 
-export function AllStickers({
+export function Stickers({
     areStickersLocked,
     setSearchTeam,
     searchTeam,
