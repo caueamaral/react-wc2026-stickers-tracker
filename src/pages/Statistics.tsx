@@ -26,10 +26,32 @@ export function Statistics() {
         }
     }
 
-    const completedStickers = Object.values(selectedStickers).reduce(
-        (total, stickers) => total + stickers.length,
-        0
-    )
+    const completedFWCStickers = fwcStickers.filter(number =>
+        selectedStickers.FWC?.includes(number)
+    ).length
+
+    const completedTeamStickers = groups.reduce((total, group) => {
+        const groupCompletedStickers = group.teams.reduce((teamTotal, team) => {
+            const selectedTeamStickers = selectedStickers[team.code] ?? []
+
+            const completedTeamStickers = groupStickers.filter(number =>
+                selectedTeamStickers.includes(number)
+            ).length
+
+            return teamTotal + completedTeamStickers
+        }, 0)
+
+        return total + groupCompletedStickers
+    }, 0)
+
+    const completedCocaColaStickers = cocaColaStickers.filter(number =>
+        selectedStickers.CocaCola?.includes(number)
+    ).length
+
+    const completedStickers =
+        completedFWCStickers +
+        completedTeamStickers +
+        completedCocaColaStickers
 
     const missingStickers = totalStickers - completedStickers
 
