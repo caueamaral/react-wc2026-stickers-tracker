@@ -78,6 +78,9 @@ export function MissingStickers({
         !selectedStickers.CocaCola?.includes(number)
     )
 
+    const fwcStickersCompleted = fwcStickers.length === selectedStickers.FWC.length
+    const cocaColaStickersCompleted = cocaColaStickers.length === selectedStickers.CocaCola.length
+
     useEffect(() => {
         localStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
     }, [selectedStickers])
@@ -88,13 +91,15 @@ export function MissingStickers({
                 areStickersLocked={areStickersLocked}
                 onToggle={toggleStickersLock}
             />
-            <div className="flex flex-wrap items-start justify-center gap-10">
+            {!fwcStickersCompleted && (
                 <FWCs
                     stickers={missingFWCStickers}
                     selectedStickers={selectedStickers.FWC ?? []}
                     onToggleSticker={number => onToggleSticker('FWC', number)}
                     areStickersLocked={areStickersLocked}
                 />
+            )}
+            <div className="flex flex-wrap items-start justify-center gap-10">
                 <Groups
                     groups={missingGroups}
                     selectedStickers={selectedStickers}
@@ -103,12 +108,14 @@ export function MissingStickers({
                     areStickersLocked={areStickersLocked}
                     searchTeam={searchTeam}
                 />
-                <CocaCola
-                    stickers={missingCocaColaStickers}
-                    selectedStickers={selectedStickers.CocaCola ?? []}
-                    onToggleSticker={number => onToggleSticker('CocaCola', number)}
-                    areStickersLocked={areStickersLocked}
-                />
+                {!cocaColaStickersCompleted && (
+                    <CocaCola
+                        stickers={missingCocaColaStickers}
+                        selectedStickers={selectedStickers.CocaCola ?? []}
+                        onToggleSticker={number => onToggleSticker('CocaCola', number)}
+                        areStickersLocked={areStickersLocked}
+                    />
+                )}
             </div>
         </main>
     )
