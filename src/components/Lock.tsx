@@ -8,7 +8,7 @@ export function Lock({ areStickersLocked, onToggle }: LockedProps) {
         <button
             type="button"
             aria-label={areStickersLocked ? 'Unlock stickers' : 'Lock stickers'}
-            className="fixed right-2 top-2 cursor-pointer"
+            className="fixed p-2 right-0 top-0 cursor-pointer"
             onClick={onToggle}
         >
             {areStickersLocked ? (
