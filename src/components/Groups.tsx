@@ -9,6 +9,7 @@ type GroupsProps = {
     groups: Group[]
     selectedStickers: Record<string, number[]>
     onToggleSticker: (teamCode: string, number: number) => void
+    getTeamStickers: (teamCode: string) => number[]
     areStickersLocked: boolean
     searchTeam: string
 }
@@ -17,6 +18,7 @@ export function Groups({
     groups,
     selectedStickers,
     onToggleSticker,
+    getTeamStickers,
     areStickersLocked,
     searchTeam
 }: GroupsProps) {
@@ -42,7 +44,7 @@ export function Groups({
                 <div className="flex flex-col gap-1">
                     {group.teams.map(team => (
                         <Team
-                            stickers={groupStickers}
+                            stickers={getTeamStickers(team.code)}
                             key={team.code}
                             onToggleSticker={(number) => onToggleSticker(team.code, number)}
                             areStickersLocked={areStickersLocked}

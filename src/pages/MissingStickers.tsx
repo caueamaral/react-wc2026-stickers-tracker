@@ -51,6 +51,12 @@ export function MissingStickers({
         })
     }
 
+    function getMissingTeamStickers(teamCode: string) {
+        return groupStickers.filter(number =>
+            !selectedStickers[teamCode]?.includes(number)
+        )
+    }
+
     const missingFWCStickers = fwcStickers.filter(number =>
         !selectedStickers.FWC?.includes(number)
     )
@@ -93,6 +99,7 @@ export function MissingStickers({
                     groups={missingGroups}
                     selectedStickers={selectedStickers}
                     onToggleSticker={onToggleSticker}
+                    getTeamStickers={getMissingTeamStickers}
                     areStickersLocked={areStickersLocked}
                     searchTeam={searchTeam}
                 />
