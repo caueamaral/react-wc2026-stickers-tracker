@@ -78,8 +78,11 @@ export function MissingStickers({
         !selectedStickers.CocaCola?.includes(number)
     )
 
-    const fwcStickersCompleted = fwcStickers.length === selectedStickers.FWC.length
-    const cocaColaStickersCompleted = cocaColaStickers.length === selectedStickers.CocaCola.length
+    const fwcStickersCompleted =
+        fwcStickers.length === (selectedStickers.FWC ?? []).length
+
+    const cocaColaStickersCompleted =
+        cocaColaStickers.length === (selectedStickers.CocaCola ?? []).length
 
     useEffect(() => {
         localStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
