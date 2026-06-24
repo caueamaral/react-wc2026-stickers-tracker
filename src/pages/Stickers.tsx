@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
-
 import { fwcStickers, groupStickers, cocaColaStickers } from '../data/stickers'
 import { groups } from '../data/groups'
 
-import type { SelectedStickers } from '../types/selectedStickers'
+import { useStickers } from '../contexts/StickersContext'
 
 import { Lock } from '../components/Lock'
 import { Search } from '../components/Search'
@@ -20,45 +18,13 @@ type StickersProps = {
     toggleStickersLock: () => void
 }
 
-const SELECTED_STICKERS_KEY = 'selectedStickers'
-
 export function Stickers({
     areStickersLocked,
     setSearchTeam,
     searchTeam,
     toggleStickersLock
 }: StickersProps) {
-    const [selectedStickers, setSelectedStickers] = useState<SelectedStickers>(() => {
-        const stored = localStorage.getItem(SELECTED_STICKERS_KEY)
-
-        if (!stored) {
-            return {}
-        }
-
-        try {
-            return JSON.parse(stored)
-        } catch {
-            return {}
-        }
-    })
-
-    function onToggleSticker(teamCode: string, number: number) {
-        setSelectedStickers(current => {
-            const teamStickers = current[teamCode] ?? []
-            
-            return {
-            ...current,
-
-            [teamCode]: teamStickers.includes(number)
-                ? teamStickers.filter(n => n !== number)
-                : [...teamStickers, number]
-            }
-        })
-    }
-
-    useEffect(() => {
-        localStorage.setItem(SELECTED_STICKERS_KEY, JSON.stringify(selectedStickers))
-    }, [selectedStickers])
+    const { selectedStickers, onToggleSticker } = useStickers()
 
     return (
         <main className="flex flex-col items-center justify-center gap-10 px-10">

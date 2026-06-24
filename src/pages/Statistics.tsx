@@ -1,9 +1,11 @@
+import { useStickers } from '../contexts/StickersContext'
+
 import { groups } from '../data/groups'
 import { cocaColaStickers, fwcStickers, groupStickers } from '../data/stickers'
 
-import type { SelectedStickers } from '../types/selectedStickers'
-
 export function Statistics() {
+    const { selectedStickers } = useStickers()
+
     const teams = groups.reduce(
         (total, group) => total + group.teams.length,
         0
@@ -13,18 +15,6 @@ export function Statistics() {
         teams * groupStickers.length +
         fwcStickers.length +
         cocaColaStickers.length
-    
-    const stored = localStorage.getItem('selectedStickers')
-    let selectedStickers: SelectedStickers = {}
-
-    if (stored) {
-        try {
-            selectedStickers = JSON.parse(stored)
-        }
-        catch {
-            selectedStickers = {}
-        }
-    }
 
     const completedFWCStickers = fwcStickers.filter(number =>
         selectedStickers.FWC?.includes(number)

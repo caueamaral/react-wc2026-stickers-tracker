@@ -8,6 +8,7 @@ FIFA World Cup 2026 Stickers Tracker in React.
 - Tailwind CSS
 - useEffect()
 - useState()
+- Context API
 - Vite
 
 ### How to use it
