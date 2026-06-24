@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { fwcStickers, groupStickers, cocaColaStickers } from '../data/stickers'
 import { groups } from '../data/groups'
 
+import type { SelectedStickers } from '../types/selectedStickers'
+
 import { Lock } from '../components/Lock'
 import { Search } from '../components/Search'
 import { FWCs } from '../components/FWCs'
@@ -10,8 +12,6 @@ import { CocaCola } from '../components/CocaCola'
 import { Groups } from '../components/Groups'
 
 import type { Dispatch, SetStateAction } from 'react'
-
-type SelectedStickers = Record<string, number[]>
 
 type StickersProps = {
     areStickersLocked: boolean

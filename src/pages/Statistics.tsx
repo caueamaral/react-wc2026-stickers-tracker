@@ -1,7 +1,7 @@
 import { groups } from '../data/groups'
 import { cocaColaStickers, fwcStickers, groupStickers } from '../data/stickers'
 
-type SelectedStickers = Record<string, number[]>
+import type { SelectedStickers } from '../types/selectedStickers'
 
 export function Statistics() {
     const teams = groups.reduce(

@@ -1,11 +1,12 @@
 import type { Group } from '../data/groups'
+import type { SelectedStickers } from '../types/selectedStickers'
 
 import { GroupHeader } from './GroupHeader'
 import { Team } from './Team'
 
 type GroupsProps = {
     groups: Group[]
-    selectedStickers: Record<string, number[]>
+    selectedStickers: SelectedStickers
     onToggleSticker: (teamCode: string, number: number) => void
     getTeamStickers: (teamCode: string) => number[]
     areStickersLocked: boolean
