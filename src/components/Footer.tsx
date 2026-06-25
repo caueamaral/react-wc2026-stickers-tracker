@@ -9,10 +9,10 @@ export function Footer({ currentPage, onNavigate }: FooterProps) {
     return (
         <footer className="bg-gray-100 h-20 flex items-stretch fixed bottom-0 left-0 w-full">
             <button
-                onClick={() => onNavigate('all-stickers')}
+                onClick={() => onNavigate('stickers')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
-                    ${currentPage === 'all-stickers' ? 'text-gray-700' : 'text-gray-300'}
+                    ${currentPage === 'stickers' ? 'text-gray-700' : 'text-gray-300'}
                 `}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -21,10 +21,10 @@ export function Footer({ currentPage, onNavigate }: FooterProps) {
                 <span className="text-sm">Stickers</span>
             </button>
             <button
-                onClick={() => onNavigate('missing-stickers')}
+                onClick={() => onNavigate('missing')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
-                    ${currentPage === 'missing-stickers' ? 'text-gray-700' : 'text-gray-300'}
+                    ${currentPage === 'missing' ? 'text-gray-700' : 'text-gray-300'}
                 `}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">

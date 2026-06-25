@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { Stickers } from './pages/Stickers'
-import { MissingStickers } from './pages/MissingStickers'
+import { Missing } from './pages/Missing'
 import { Statistics } from './pages/Statistics'
 
 import { Header } from './components/Header'
@@ -12,7 +12,7 @@ import type { Page } from './types/page'
 import './css/styles.css'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('all-stickers')
+  const [currentPage, setCurrentPage] = useState<Page>('stickers')
   const [areStickersLocked, setAreStickersLocked] = useState<boolean>(true)
   const [searchTeam, setSearchTeam] = useState<string>('')
 
@@ -24,7 +24,7 @@ function App() {
     <div className="pt-10 pb-30 mx-auto">
       <Header />
 
-      {currentPage === 'all-stickers' && (
+      {currentPage === 'stickers' && (
         <Stickers
           areStickersLocked={areStickersLocked}
           searchTeam={searchTeam}
@@ -33,8 +33,8 @@ function App() {
         />
       )}
 
-      {currentPage === 'missing-stickers' && (
-        <MissingStickers
+      {currentPage === 'missing' && (
+        <Missing
           areStickersLocked={areStickersLocked}
           searchTeam={searchTeam}
           toggleStickersLock={toggleStickersLock}

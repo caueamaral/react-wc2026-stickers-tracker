@@ -14,7 +14,7 @@ type StickersProps = {
     toggleStickersLock: () => void
 }
 
-export function MissingStickers({
+export function Missing({
     areStickersLocked,
     searchTeam,
     toggleStickersLock

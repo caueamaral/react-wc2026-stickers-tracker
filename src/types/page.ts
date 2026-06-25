@@ -1,4 +1,4 @@
 export type Page =
-    'all-stickers' |
-    'missing-stickers' |
+    'stickers' |
+    'missing' |
     'statistics'
