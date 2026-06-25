@@ -53,7 +53,7 @@ export function Statistics() {
             : percentageCompleted.toFixed(2).replace('.', ',')
 
     return (
-        <main className="flex flex-col items-center justify-center gap-5 px-10">
+        <main className="flex flex-col items-center justify-center gap-10 px-10 overflow-hidden">
             <article className="flex flex-col gap-5 w-90">
                 <section className="bg-white p-4 text-lg rounded-md">
                     <div>

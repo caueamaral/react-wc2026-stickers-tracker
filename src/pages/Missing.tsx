@@ -46,7 +46,7 @@ export function Missing() {
         cocaColaStickers.length === (selectedStickers.CocaCola ?? []).length
 
     return (
-        <main className="flex flex-col items-center justify-center gap-10 px-10">
+        <main className="flex flex-col items-center justify-center gap-10 px-10 overflow-hidden">
             <Lock />
             {!fwcStickersCompleted && (
                 <FWCs

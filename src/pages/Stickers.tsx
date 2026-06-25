@@ -14,7 +14,7 @@ export function Stickers() {
     const toggleSticker = useStickersStore(state => state.toggleSticker)
 
     return (
-        <main className="flex flex-col items-center justify-center gap-10 px-10">
+        <main className="flex flex-col items-center justify-center gap-10 px-10 overflow-hidden">
             <Lock />
             <Search />
             <div className="flex flex-wrap items-start justify-center gap-10">
