@@ -1,7 +1,7 @@
 import { fwcStickers, groupStickers, cocaColaStickers } from '../data/stickers'
 import { groups } from '../data/groups'
 
-import { useStickers } from '../contexts/StickersContext'
+import { useStickersStore } from '../stores/stickersStore'
 
 import { Lock } from '../components/Lock'
 import { FWCs } from '../components/FWCs'
@@ -19,7 +19,8 @@ export function MissingStickers({
     searchTeam,
     toggleStickersLock
 }: StickersProps) {
-    const { selectedStickers, onToggleSticker } = useStickers()
+    const selectedStickers = useStickersStore(state => state.selectedStickers)
+    const onToggleSticker = useStickersStore(state => state.onToggleSticker)
 
     function getMissingTeamStickers(teamCode: string) {
         return groupStickers.filter(number =>

@@ -1,10 +1,10 @@
-import { useStickers } from '../contexts/StickersContext'
+import { useStickersStore } from '../stores/stickersStore'
 
 import { groups } from '../data/groups'
 import { cocaColaStickers, fwcStickers, groupStickers } from '../data/stickers'
 
 export function Statistics() {
-    const { selectedStickers } = useStickers()
+    const selectedStickers = useStickersStore(state => state.selectedStickers)
 
     const teams = groups.reduce(
         (total, group) => total + group.teams.length,
