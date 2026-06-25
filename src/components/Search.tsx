@@ -1,11 +1,9 @@
-import type { Dispatch, SetStateAction } from 'react'
+import { useSearchTeamStore } from '../stores/searchTeamStore'
 
-type SearchProps = {
-    searchTeam: string
-    setSearchTeam: Dispatch<SetStateAction<string>>
-}
+export function Search() {
+    const searchTeam = useSearchTeamStore(state => state.searchTeam)
+    const setSearchTeam = useSearchTeamStore(state => state.setSearchTeam)
 
-export function Search({ searchTeam, setSearchTeam }: SearchProps) {
     return (
         <header className="flex flex-col items-center px-10">
             <form className="flex w-90 max-w-full">

@@ -1,6 +1,8 @@
 import type { Group } from '../data/groups'
 import type { SelectedStickers } from '../types/selectedStickers'
 
+import { useSearchTeamStore } from '../stores/searchTeamStore'
+
 import { GroupHeader } from './GroupHeader'
 import { Team } from './Team'
 
@@ -10,7 +12,6 @@ type GroupsProps = {
     onToggleSticker: (teamCode: string, number: number) => void
     getTeamStickers: (teamCode: string) => number[]
     areStickersLocked: boolean
-    searchTeam: string
 }
 
 export function Groups({
@@ -19,8 +20,9 @@ export function Groups({
     onToggleSticker,
     getTeamStickers,
     areStickersLocked,
-    searchTeam
 }: GroupsProps) {
+    const searchTeam = useSearchTeamStore(state => state.searchTeam)
+
     const normalizedSearch = searchTeam.trim().toUpperCase()
 
     const filteredGroups = groups

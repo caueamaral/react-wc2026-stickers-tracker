@@ -10,13 +10,11 @@ import { Groups } from '../components/Groups'
 
 type StickersProps = {
     areStickersLocked: boolean
-    searchTeam: string
     toggleStickersLock: () => void
 }
 
 export function Missing({
     areStickersLocked,
-    searchTeam,
     toggleStickersLock
 }: StickersProps) {
     const selectedStickers = useStickersStore(state => state.selectedStickers)
@@ -76,7 +74,6 @@ export function Missing({
                     onToggleSticker={toggleSticker}
                     getTeamStickers={getMissingTeamStickers}
                     areStickersLocked={areStickersLocked}
-                    searchTeam={searchTeam}
                 />
                 {!cocaColaStickersCompleted && (
                     <CocaCola

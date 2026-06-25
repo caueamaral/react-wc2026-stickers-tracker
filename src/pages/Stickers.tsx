@@ -9,19 +9,13 @@ import { FWCs } from '../components/FWCs'
 import { CocaCola } from '../components/CocaCola'
 import { Groups } from '../components/Groups'
 
-import type { Dispatch, SetStateAction } from 'react'
-
 type StickersProps = {
     areStickersLocked: boolean
-    setSearchTeam: Dispatch<SetStateAction<string>>
-    searchTeam: string
     toggleStickersLock: () => void
 }
 
 export function Stickers({
     areStickersLocked,
-    setSearchTeam,
-    searchTeam,
     toggleStickersLock
 }: StickersProps) {
     const selectedStickers = useStickersStore(state => state.selectedStickers)
@@ -33,10 +27,7 @@ export function Stickers({
                 areStickersLocked={areStickersLocked}
                 onToggle={toggleStickersLock}
             />
-            <Search
-                searchTeam={searchTeam}
-                setSearchTeam={setSearchTeam}
-            />
+            <Search />
             <div className="flex flex-wrap items-start justify-center gap-10">
                 <FWCs
                     stickers={fwcStickers}
@@ -50,7 +41,6 @@ export function Stickers({
                     onToggleSticker={toggleSticker}
                     getTeamStickers={() => groupStickers}
                     areStickersLocked={areStickersLocked}
-                    searchTeam={searchTeam}
                 />
                 <CocaCola
                     stickers={cocaColaStickers}

@@ -14,7 +14,6 @@ import './css/styles.css'
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('stickers')
   const [areStickersLocked, setAreStickersLocked] = useState<boolean>(true)
-  const [searchTeam, setSearchTeam] = useState<string>('')
 
   function toggleStickersLock() {
     setAreStickersLocked(current => !current)
@@ -27,8 +26,6 @@ function App() {
       {currentPage === 'stickers' && (
         <Stickers
           areStickersLocked={areStickersLocked}
-          searchTeam={searchTeam}
-          setSearchTeam={setSearchTeam}
           toggleStickersLock={toggleStickersLock}
         />
       )}
@@ -36,7 +33,6 @@ function App() {
       {currentPage === 'missing' && (
         <Missing
           areStickersLocked={areStickersLocked}
-          searchTeam={searchTeam}
           toggleStickersLock={toggleStickersLock}
         />
       )}
