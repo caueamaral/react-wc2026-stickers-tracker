@@ -1,15 +1,13 @@
-import type { Page } from '../types/page'
+import { useCurrentPageStore } from '../stores/currentPageStore'
 
-type FooterProps = {
-    currentPage: Page
-    onNavigate: (page: Page) => void
-}
-
-export function Footer({ currentPage, onNavigate }: FooterProps) {
+export function Footer() {
+    const currentPage = useCurrentPageStore(state => state.currentPage)
+    const setCurrentPage = useCurrentPageStore(state => state.setCurrentPage)
+    
     return (
         <footer className="bg-gray-100 h-20 flex items-stretch fixed bottom-0 left-0 w-full">
             <button
-                onClick={() => onNavigate('stickers')}
+                onClick={() => setCurrentPage('stickers')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
                     ${currentPage === 'stickers' ? 'text-gray-700' : 'text-gray-300'}
@@ -21,7 +19,7 @@ export function Footer({ currentPage, onNavigate }: FooterProps) {
                 <span className="text-sm">Stickers</span>
             </button>
             <button
-                onClick={() => onNavigate('missing')}
+                onClick={() => setCurrentPage('missing')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
                     ${currentPage === 'missing' ? 'text-gray-700' : 'text-gray-300'}
@@ -33,7 +31,7 @@ export function Footer({ currentPage, onNavigate }: FooterProps) {
                 <span className="text-sm">Missing</span>
             </button>
             <button
-                onClick={() => onNavigate('statistics')}
+                onClick={() => setCurrentPage('statistics')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
                     ${currentPage === 'statistics' ? 'text-gray-700' : 'text-gray-300'}

@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { Stickers } from './pages/Stickers'
 import { Missing } from './pages/Missing'
 import { Statistics } from './pages/Statistics'
@@ -7,12 +5,12 @@ import { Statistics } from './pages/Statistics'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
-import type { Page } from './types/page'
+import { useCurrentPageStore } from './stores/currentPageStore'
 
 import './css/styles.css'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('stickers')
+  const currentPage = useCurrentPageStore(state => state.currentPage)
 
   return (
     <div className="pt-10 pb-30 mx-auto">
@@ -30,10 +28,7 @@ function App() {
         <Statistics />
       )}
       
-      <Footer
-        currentPage={currentPage}
-        onNavigate={setCurrentPage}
-      />
+      <Footer />
     </div>
   )
 }

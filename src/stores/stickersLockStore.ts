@@ -5,7 +5,7 @@ type StickersLockStore = {
     toggleStickersLock: () => void
 }
 
-export const useStickersLockStore = create<StickersLockStore>((set) => ({
+export const useStickersLockStore = create<StickersLockStore>(set => ({
     areStickersLocked: true,
     toggleStickersLock: () => set(state => ({
         areStickersLocked: !state.areStickersLocked
