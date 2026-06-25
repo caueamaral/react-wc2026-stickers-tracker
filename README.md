@@ -1,5 +1,5 @@
 FIFA World Cup 2026 Stickers Tracker in React.
-[See the project](https://caueamaral.github.io/react-wc2026-stickers-tracker).
+[See the project](https://stickers.souzafacil.com.br).
 
 <img src="src/images/react-wc2026-stickers-tracker.jpg" alt="FIFA World Cup 2026 Stickers Tracker in React">
 
@@ -8,7 +8,7 @@ FIFA World Cup 2026 Stickers Tracker in React.
 - Tailwind CSS
 - useEffect()
 - useState()
-- Context API
+- Zustand
 - Vite
 
 ### How to use it
