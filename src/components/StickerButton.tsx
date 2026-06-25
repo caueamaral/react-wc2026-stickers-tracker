@@ -1,6 +1,7 @@
+import { useStickersLockStore } from '../stores/stickersLockStore'
+
 type StickerButtonProps = {
     number: number
-    areStickersLocked: boolean
     selectedStickers: number[]
     onToggleSticker: (number: number) => void
     label?: string
@@ -8,11 +9,12 @@ type StickerButtonProps = {
 
 export function StickerButton({
     number,
-    areStickersLocked,
     selectedStickers,
     onToggleSticker,
     label
 }: StickerButtonProps) {
+    const areStickersLocked = useStickersLockStore(state => state.areStickersLocked)
+
     return (
         <button
             disabled={areStickersLocked}

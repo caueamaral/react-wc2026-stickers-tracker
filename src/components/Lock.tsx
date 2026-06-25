@@ -1,15 +1,15 @@
-type LockedProps = {
-    areStickersLocked: boolean
-    onToggle: () => void
-}
+import { useStickersLockStore } from '../stores/stickersLockStore'
 
-export function Lock({ areStickersLocked, onToggle }: LockedProps) {
+export function Lock() {
+    const areStickersLocked = useStickersLockStore(state => state.areStickersLocked)
+    const toggleStickersLock = useStickersLockStore(state => state.toggleStickersLock)
+
     return (
         <button
             type="button"
             aria-label={areStickersLocked ? 'Unlock stickers' : 'Lock stickers'}
             className="fixed p-2 right-0 top-0 cursor-pointer"
-            onClick={onToggle}
+            onClick={toggleStickersLock}
         >
             {areStickersLocked ? (
                 <svg

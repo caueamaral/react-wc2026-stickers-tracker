@@ -8,15 +8,7 @@ import { FWCs } from '../components/FWCs'
 import { CocaCola } from '../components/CocaCola'
 import { Groups } from '../components/Groups'
 
-type StickersProps = {
-    areStickersLocked: boolean
-    toggleStickersLock: () => void
-}
-
-export function Missing({
-    areStickersLocked,
-    toggleStickersLock
-}: StickersProps) {
+export function Missing() {
     const selectedStickers = useStickersStore(state => state.selectedStickers)
     const toggleSticker = useStickersStore(state => state.toggleSticker)
 
@@ -55,16 +47,12 @@ export function Missing({
 
     return (
         <main className="flex flex-col items-center justify-center gap-10 px-10">
-            <Lock
-                areStickersLocked={areStickersLocked}
-                onToggle={toggleStickersLock}
-            />
+            <Lock />
             {!fwcStickersCompleted && (
                 <FWCs
                     stickers={missingFWCStickers}
                     selectedStickers={selectedStickers.FWC ?? []}
                     onToggleSticker={number => toggleSticker('FWC', number)}
-                    areStickersLocked={areStickersLocked}
                 />
             )}
             <div className="flex flex-wrap items-start justify-center gap-10">
@@ -73,14 +61,12 @@ export function Missing({
                     selectedStickers={selectedStickers}
                     onToggleSticker={toggleSticker}
                     getTeamStickers={getMissingTeamStickers}
-                    areStickersLocked={areStickersLocked}
                 />
                 {!cocaColaStickersCompleted && (
                     <CocaCola
                         stickers={missingCocaColaStickers}
                         selectedStickers={selectedStickers.CocaCola ?? []}
                         onToggleSticker={number => toggleSticker('CocaCola', number)}
-                        areStickersLocked={areStickersLocked}
                     />
                 )}
             </div>

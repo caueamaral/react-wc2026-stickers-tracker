@@ -11,7 +11,6 @@ type GroupsProps = {
     selectedStickers: SelectedStickers
     onToggleSticker: (teamCode: string, number: number) => void
     getTeamStickers: (teamCode: string) => number[]
-    areStickersLocked: boolean
 }
 
 export function Groups({
@@ -19,7 +18,6 @@ export function Groups({
     selectedStickers,
     onToggleSticker,
     getTeamStickers,
-    areStickersLocked,
 }: GroupsProps) {
     const searchTeam = useSearchTeamStore(state => state.searchTeam)
 
@@ -48,7 +46,6 @@ export function Groups({
                             stickers={getTeamStickers(team.code)}
                             key={team.code}
                             onToggleSticker={(number) => onToggleSticker(team.code, number)}
-                            areStickersLocked={areStickersLocked}
                             team={team}
                             selectedStickers={selectedStickers[team.code] ?? []}
                         />

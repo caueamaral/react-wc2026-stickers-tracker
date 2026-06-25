@@ -5,14 +5,12 @@ type CocaColaProps = {
     stickers: number[]
     selectedStickers: number[]
     onToggleSticker: (number: number) => void
-    areStickersLocked: boolean
 }
 
 export function CocaCola({
     stickers,
     selectedStickers,
     onToggleSticker,
-    areStickersLocked
 }: CocaColaProps) {
     return (
         <article className="bg-white gap-10 p-5 rounded-md w-90">
@@ -22,7 +20,6 @@ export function CocaCola({
                     <StickerButton
                         key={number}
                         number={number}
-                        areStickersLocked={areStickersLocked}
                         selectedStickers={selectedStickers}
                         onToggleSticker={onToggleSticker}
                         label={number === 0 ? '00' : number.toString()}

@@ -5,7 +5,7 @@ type SearchTeamStore = {
     setSearchTeam: (value: string) => void
 }
 
-export const useSearchTeamStore = create<SearchTeamStore>((set) => ({
+export const useSearchTeamStore = create<SearchTeamStore>(set => ({
     searchTeam: '',
     setSearchTeam: (value) => set({ searchTeam: value })
 }))

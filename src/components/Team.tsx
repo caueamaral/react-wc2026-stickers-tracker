@@ -4,7 +4,6 @@ import type { Team } from '../types/team'
 
 type TeamProps = {
     stickers: number[]
-    areStickersLocked: boolean
     team: Team
     selectedStickers: number[]
     onToggleSticker: (number: number) => void
@@ -12,7 +11,6 @@ type TeamProps = {
 
 export function Team({
     stickers,
-    areStickersLocked,
     team, selectedStickers,
     onToggleSticker
 }: TeamProps) {
@@ -33,7 +31,6 @@ export function Team({
                     <StickerButton
                         key={number}
                         number={number}
-                        areStickersLocked={areStickersLocked}
                         selectedStickers={selectedStickers}
                         onToggleSticker={onToggleSticker}
                     />

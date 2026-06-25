@@ -13,28 +13,17 @@ import './css/styles.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('stickers')
-  const [areStickersLocked, setAreStickersLocked] = useState<boolean>(true)
-
-  function toggleStickersLock() {
-    setAreStickersLocked(current => !current)
-  }
 
   return (
     <div className="pt-10 pb-30 mx-auto">
       <Header />
 
       {currentPage === 'stickers' && (
-        <Stickers
-          areStickersLocked={areStickersLocked}
-          toggleStickersLock={toggleStickersLock}
-        />
+        <Stickers />
       )}
 
       {currentPage === 'missing' && (
-        <Missing
-          areStickersLocked={areStickersLocked}
-          toggleStickersLock={toggleStickersLock}
-        />
+        <Missing />
       )}
 
       {currentPage === 'statistics' && (
