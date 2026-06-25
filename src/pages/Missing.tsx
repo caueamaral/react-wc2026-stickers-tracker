@@ -20,7 +20,7 @@ export function Missing({
     toggleStickersLock
 }: StickersProps) {
     const selectedStickers = useStickersStore(state => state.selectedStickers)
-    const onToggleSticker = useStickersStore(state => state.onToggleSticker)
+    const toggleSticker = useStickersStore(state => state.toggleSticker)
 
     function getMissingTeamStickers(teamCode: string) {
         return groupStickers.filter(number =>
@@ -65,7 +65,7 @@ export function Missing({
                 <FWCs
                     stickers={missingFWCStickers}
                     selectedStickers={selectedStickers.FWC ?? []}
-                    onToggleSticker={number => onToggleSticker('FWC', number)}
+                    onToggleSticker={number => toggleSticker('FWC', number)}
                     areStickersLocked={areStickersLocked}
                 />
             )}
@@ -73,7 +73,7 @@ export function Missing({
                 <Groups
                     groups={missingGroups}
                     selectedStickers={selectedStickers}
-                    onToggleSticker={onToggleSticker}
+                    onToggleSticker={toggleSticker}
                     getTeamStickers={getMissingTeamStickers}
                     areStickersLocked={areStickersLocked}
                     searchTeam={searchTeam}
@@ -82,7 +82,7 @@ export function Missing({
                     <CocaCola
                         stickers={missingCocaColaStickers}
                         selectedStickers={selectedStickers.CocaCola ?? []}
-                        onToggleSticker={number => onToggleSticker('CocaCola', number)}
+                        onToggleSticker={number => toggleSticker('CocaCola', number)}
                         areStickersLocked={areStickersLocked}
                     />
                 )}

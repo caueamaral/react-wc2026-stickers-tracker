@@ -25,7 +25,7 @@ export function Stickers({
     toggleStickersLock
 }: StickersProps) {
     const selectedStickers = useStickersStore(state => state.selectedStickers)
-    const onToggleSticker = useStickersStore(state => state.onToggleSticker)
+    const toggleSticker = useStickersStore(state => state.toggleSticker)
 
     return (
         <main className="flex flex-col items-center justify-center gap-10 px-10">
@@ -41,13 +41,13 @@ export function Stickers({
                 <FWCs
                     stickers={fwcStickers}
                     selectedStickers={selectedStickers.FWC ?? []}
-                    onToggleSticker={number => onToggleSticker('FWC', number)}
+                    onToggleSticker={number => toggleSticker('FWC', number)}
                     areStickersLocked={areStickersLocked}
                 />
                 <Groups
                     groups={groups}
                     selectedStickers={selectedStickers}
-                    onToggleSticker={onToggleSticker}
+                    onToggleSticker={toggleSticker}
                     getTeamStickers={() => groupStickers}
                     areStickersLocked={areStickersLocked}
                     searchTeam={searchTeam}
@@ -55,7 +55,7 @@ export function Stickers({
                 <CocaCola
                     stickers={cocaColaStickers}
                     selectedStickers={selectedStickers.CocaCola ?? []}
-                    onToggleSticker={number => onToggleSticker('CocaCola', number)}
+                    onToggleSticker={number => toggleSticker('CocaCola', number)}
                     areStickersLocked={areStickersLocked}
                 />
             </div>

@@ -4,7 +4,7 @@ import type { SelectedStickers } from '../types/selectedStickers'
 
 type StickersStore = {
     selectedStickers: SelectedStickers
-    onToggleSticker: (teamCode: string, number: number) => void
+    toggleSticker: (teamCode: string, number: number) => void
 }
 
 const SELECTED_STICKERS_KEY = 'selectedStickers'
@@ -26,7 +26,7 @@ function getStoredSelectedStickers(): SelectedStickers {
 export const useStickersStore = create<StickersStore>((set) => ({
     selectedStickers: getStoredSelectedStickers(),
 
-    onToggleSticker: (teamCode, number) => {
+    toggleSticker: (teamCode, number) => {
         set((state) => {
             const teamStickers = state.selectedStickers[teamCode] ?? []
 
