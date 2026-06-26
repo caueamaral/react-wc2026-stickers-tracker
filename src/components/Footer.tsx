@@ -1,22 +1,13 @@
 import { useCurrentPageStore } from '../stores/currentPageStore'
-import { useStickersLockStore } from '../stores/stickersLockStore'
-
-import type { Page } from '../types/page'
 
 export function Footer() {
     const currentPage = useCurrentPageStore(state => state.currentPage)
-    const setCurrentPage = useCurrentPageStore(state => state.setCurrentPage)
-    const lockStickers = useStickersLockStore(state => state.lockStickers)
+    const changePage = useCurrentPageStore(state => state.changePage)
 
-    function handlePageChange(page: Page) {
-        lockStickers()
-        setCurrentPage(page)
-    }
-    
     return (
         <footer className="bg-gray-100 h-20 flex items-stretch fixed bottom-0 left-0 w-full">
             <button
-                onClick={() => handlePageChange('stickers')}
+                onClick={() => changePage('stickers')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
                     ${currentPage === 'stickers' ? 'text-gray-700' : 'text-gray-300'}
@@ -28,7 +19,7 @@ export function Footer() {
                 <span className="text-sm">Stickers</span>
             </button>
             <button
-                onClick={() => handlePageChange('missing')}
+                onClick={() => changePage('missing')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
                     ${currentPage === 'missing' ? 'text-gray-700' : 'text-gray-300'}
@@ -40,7 +31,7 @@ export function Footer() {
                 <span className="text-sm">Missing</span>
             </button>
             <button
-                onClick={() => handlePageChange('statistics')}
+                onClick={() => changePage('statistics')}
                 className={`
                     flex flex-col flex-1 items-center justify-center gap-1 border-r border-gray-300 cursor-pointer
                     ${currentPage === 'statistics' ? 'text-gray-700' : 'text-gray-300'}

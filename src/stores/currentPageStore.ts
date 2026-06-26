@@ -1,13 +1,17 @@
 import { create } from 'zustand'
+import { useStickersLockStore } from './stickersLockStore'
 
 import type { Page } from '../types/page'
 
 type CurrentPageStore = {
     currentPage: Page
-    setCurrentPage: (page: Page) => void
+    changePage: (page: Page) => void
 }
 
 export const useCurrentPageStore = create<CurrentPageStore>(set => ({
     currentPage: 'stickers',
-    setCurrentPage: (page) => set({ currentPage: page })
+    changePage: (page) => {
+        useStickersLockStore.getState().lockStickers()
+        set({ currentPage: page })
+    }
 }))
